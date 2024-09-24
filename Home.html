@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        background-image: url(https://static.vecteezy.com/system/resources/previews/000/093/696/original/vector-yellow-abstract-background.jpg); 
+        color: #555;
+        font-family: 'Roboto';
+        font-weight: 1000;
+        font-size: 5vw;
+        padding-top: 40vh;
+        height: 100vh;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -webkit-transform: translate3d(0,0,0);
+      }
+    
+      div {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      
+      .welcome {
+        animation: showup 3s ease forwards, hide 3s ease 9s forwards;
+      }
+      
+      .buyatease {
+        width: 0px;
+        animation: reveal 3s ease 3s forwards, remain 3s ease 6s forwards, finalReveal 3s ease 9s forwards;
+        text-align: center;
+      }
+      
+      .buyatease a {
+        animation: slidein 3s ease 3s forwards, remainVisible 3s ease 6s forwards;
+      }
+    
+      @keyframes showup {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+    
+      @keyframes hide {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+    
+      @keyframes reveal {
+        0% { width: 0px; opacity: 0; }
+        100% { width: 25vw; opacity: 1; }
+      }
+    
+      @keyframes remain {
+        0% { width: 25vw; }
+        100% { width: 25vw; }
+      }
+    
+      @keyframes slidein {
+        0% { margin-left: -100vw; }
+        100% { margin-left: 0px; }
+      }
+    
+      @keyframes remainVisible {
+        0% { margin-left: 0px; }
+        100% { margin-left: 0px; }
+      }
+    
+      @keyframes finalReveal {
+        0% { width: 25vw; opacity: 1; }
+        100% { width: 25vw; opacity: 1; }
+      }
+    </style>
+</head>
+<body>
+<div class="welcome">Welcome</div> 
+<div class="buyatease"> 
+  <a href="home" style="color:#555; text-decoration: none;">To BuyAtEase</a>
+</div>
+</body>
+</html>
+
+
