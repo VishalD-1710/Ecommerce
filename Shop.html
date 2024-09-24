@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Carousel</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'shop.css' %}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure the navbar is above other content */
+        }
+        .slider {
+            width: 200%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            align-items: center; /* Center the slides vertically */
+            position: relative;
+        }
+        
+        .slides {
+            display: flex;
+            width: 100%; /* Adjust according to the number of slides */
+            height: 100%;
+            animation: slide 200s infinite;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        
+        .slide {
+            width: 100%; /* Each slide takes up full width */
+            flex: 1 0 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        
+        .card {
+            display: flex; /* Use Flexbox to align image and content side by side */
+            width: 80%; /* Card takes up 80% of its container */
+            max-width: 1000px; /* Optional: Limit card width */
+            background: #000; /* White background for card content */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden; /* Ensure content doesn't overflow */
+            color: white;
+            padding: 2.7vw;
+        }
+        
+        .card-img-left {
+            width: 50%; /* Image occupies 50% of the card width */
+            height: 50vh; /* Image height matches the card height */
+            /* Ensure the image covers the area */
+        }
+        
+        .card-body {
+            width: 50%; /* Content occupies 50% of the card width */
+            padding: 15px;
+            text-align: center; /* Align text to the right */
+            position: absolute;
+            top: 0;
+            right: 0;
+            box-sizing: border-box; /* Ensure padding doesn't exceed width */
+        }
+        
+        .card-title {
+            margin: 0 0 10px;
+        }
+        
+        .card-text {
+            margin: 0 0 15px;
+            text-align: left; /* Align text to the left */
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        h1 {
+            color: black;
+            -webkit-text-stroke: 2px white;
+            font-size: 2vw;
+        }
+        h5
+        {
+            font-weight: 1000;
+        }
+        .navbar a {
+            padding: 2.1em;
+            margin: 0.5em;
+            margin-bottom: 0%;
+        }
+        .navbar h1{
+            margin: 1em;
+            
+        }
+        section {
+            margin-top: 0;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+        
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1 style="float: left;">BuyAtEase.com</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" enctype="multipart/form-data">
+       
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="home">Login/Signup</a>
+        <a class="nav-item nav-link" href="#mobile">Mobile</a>
+        <a class="nav-item nav-link " href="#laptop">Laptop</a>
+        <a class="nav-item nav-link " href="#smartwatch">Smart Watch</a>
+        <h1 style="margin-left:12em;">Welcome {{username}}</h1> <i class="bi bi-person"></i>
+      </div>
+    </div>
+  </nav>
+  <section id="mobile">
+    <div style="display: flex; justify-content: center;">
+        <div class="slider">
+            <div class="slides">
+                {% for i in val %}
+                <div class="slide">
+                    <div class="card">
+                        <img class="card-img-left w-50 " src="{{i.img}}" alt="{{i.prodname}}" >
+                        <div class="card-body ">
+                            <h5 class="text">{{i.prodname}}</h5>
+                            <p class="text">{{i.proddesc}}</p>
+                            <a href="#" class="btn btn-primary" style="margin-bottom: 2em;">Compare</a> 
+                            <div style="display: flex;justify-content:space-around;">
+                            <a href="{{i.link1}}" target="_blank"><img src="{% static 'amazon.jpg'%}" width="50px" height="50px" alt=""></a>
+                            <a href="{{i.link2}}" target="_blank"><img src="{% static 'flipkart.jpg'%}" width="50px" height="50px" alt=""></a>
+                            <a href="{{i.link3}}" target="_blank"><img src="{% static 'r.png'%}" width="50px" height="50px" alt=""></a>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  </section>
+  <section id="laptop">
+    <div style="display: flex; justify-content: center;">
+        <div class="slider">
+            <div class="slides">
+                {% for i in lap %}
+                <div class="slide">
+                    <div class="card">
+                        <img class="card-img-left w-50" src="{{i.img}}" alt="{{i.prodname}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.prodname}}</h5>
+                            <p class="card-text">{{i.proddesc}}</p>
+                            <a href="#" class="btn btn-primary" style="margin-bottom: 2em;">Compare</a>
+                            <div style="display: flex;justify-content:space-around;">
+                                <a href=""><img src="{% static 'amazon.jpg'%}" width="50px" height="50px" alt=""></a>
+                                <a href=""><img src="{% static 'flipkart.jpg'%}" width="50px" height="50px" alt=""></a>
+                                <a href=""><img src="{% static 'wal.jpeg'%}" width="50px" height="50px" alt=""></a>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  </section>
+  <section id="smartwatch">
+    <div style="display: flex; justify-content: center;">
+        <div class="slider">
+            <div class="slides">
+                {% for i in wat %}
+                <div class="slide">
+                    <div class="card">
+                        <img class="card-img-left w-50" src="{{i.img}}" alt="{{i.prodname}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.prodname}}</h5>
+                            <p class="card-text">{{i.proddesc}}</p>
+                            <a href="#" class="btn btn-primary" style="margin-bottom: 2em;">Compare</a>
+                            <div style="display: flex;justify-content:space-around;">
+                                <a href=""><img src="{% static 'amazon.jpg'%}" width="50px" height="50px" alt=""></a>
+                                <a href=""><img src="{% static 'flipkart.jpg'%}" width="50px" height="50px" alt=""></a>
+                                <a href=""><img src="{% static 'wal.jpeg'%}" width="50px" height="50px" alt=""></a>
+    
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  </section>
+</body>
+</html>
