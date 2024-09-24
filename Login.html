@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css'%}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 4em;">
+        <h1 style="float: left; color: black;
+    -webkit-text-stroke: 2px white;
+    font-size: 2vw;">BuyAtEase.com</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="main">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="home">Login/Signup</a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link disabled" href="#">About Us</a>
+          </div>
+        </div>
+      </nav>
+    <!-- <div class="main">
+        <form class="container">
+            <h2 style="margin-top:0.5em;">Sign Up</h2> <br>
+            <input type="text" placeholder="Username"><br>
+            <input type="email" placeholder="Email"><br>
+            <input type="password" placeholder="Password" style="margin-bottom:1.5em"> <br>
+            <button type="submit" style="margin: auto;padding:1vw;width:150px;">Register</button>
+        </form>
+        <div class="ss" >
+        <form action="show" method="post"> 
+          {% csrf_token %}
+            <h2>Sign In</h2> <br>
+            <table>
+            {{ty.as_table}}
+          </table>
+            <button type="submit">Let's Compare!!</button> 
+        </form>
+      </div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css'%}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <h1 style="float: left; color: black; -webkit-text-stroke: 2px white; font-size: 2vw;">BuyAtEase.com</h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="main">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="home">Login/Signup</a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link disabled" href="#">About Us</a>
+        </div>
+      </div>
+  </nav>
+  <section>
+  <div class="main-container" style="    width: 75%; ">
+      <div class="ss" >
+          <form action="show"> 
+              <h2>Sign Up</h2> <br>
+              <label for="" style="color: white;">Username</label>
+              <input type="text" name="na"> <br>
+              <label for="" style="color: white;">Password</label>
+              <input type="password" name="pass"> <br>
+              <label for="" style="color: white;">Email</label>
+              <input type="email"  name="em"> <br>
+              <button type="submit">Sign Up!!</button> 
+          </form>
+      </div>
+      <div class="ss">
+          <form action="home" method="post">
+              {% csrf_token %}
+              <h2>Sign In</h2> <br>
+              <table>
+                  {{ ty.as_table }}
+              </table>
+              <button type="submit">Let's Compare!!</button>
+          </form>
+      </div>
+  </div>
+</section>
+</body>
+</html>
